@@ -1,0 +1,137 @@
+{
+  "scenarios": [
+    {
+      "name": "Grammy Awards 2024 - Arbitrage",
+      "description": "Davido vs Tyla betting scenario from spec",
+      "odds_a": "39%",
+      "odds_b": "26%",
+      "total": 10000,
+      "method": "arbitrage",
+      "currency": "₦",
+      "option_a_name": "Davido - With You",
+      "option_b_name": "Tyla - PUSH 2 START",
+      "expected": {
+        "stake_a_approx": 6453,
+        "stake_b_approx": 3547,
+        "guaranteed_profit": true
+      }
+    },
+    {
+      "name": "Equal Odds - No Arbitrage",
+      "description": "When odds are equal, no guaranteed profit exists",
+      "odds_a": "2.0",
+      "odds_b": "2.0",
+      "total": 1000,
+      "method": "arbitrage",
+      "currency": "$",
+      "expected": {
+        "stake_a_approx": 500,
+        "stake_b_approx": 500,
+        "guaranteed_profit": false,
+        "market_efficiency": 1.0
+      }
+    },
+    {
+      "name": "Favorable Arbitrage",
+      "description": "Strong arbitrage opportunity with wide odds spread",
+      "odds_a": "2.5",
+      "odds_b": "3.0",
+      "total": 1000,
+      "method": "arbitrage",
+      "currency": "$",
+      "expected": {
+        "guaranteed_profit": true,
+        "min_profit_positive": true
+      }
+    },
+    {
+      "name": "Kelly with Edge",
+      "description": "Kelly criterion when bettor has probability edge",
+      "odds_a": "2.1",
+      "odds_b": "3.5",
+      "total": 1000,
+      "method": "kelly",
+      "prob_a": 0.55,
+      "prob_b": 0.40,
+      "currency": "$",
+      "expected": {
+        "total_allocated_lte": 1000
+      }
+    },
+    {
+      "name": "Kelly No Edge",
+      "description": "Kelly with fair probabilities results in no bet",
+      "odds_a": "2.0",
+      "odds_b": "2.0",
+      "total": 1000,
+      "method": "kelly",
+      "prob_a": 0.5,
+      "prob_b": 0.5,
+      "currency": "$",
+      "expected": {
+        "stake_a_approx": 0,
+        "stake_b_approx": 0
+      }
+    },
+    {
+      "name": "Proportional Standard",
+      "description": "Simple proportional allocation",
+      "odds_a": "2.5",
+      "odds_b": "4.0",
+      "total": 1000,
+      "method": "proportional",
+      "currency": "$",
+      "expected": {
+        "stake_a_gt_stake_b": true
+      }
+    },
+    {
+      "name": "Fractional Odds Input",
+      "description": "Testing fractional odds parsing",
+      "odds_a": "3/2",
+      "odds_b": "5/2",
+      "total": 500,
+      "method": "arbitrage",
+      "currency": "$",
+      "expected": {
+        "guaranteed_profit": true
+      }
+    },
+    {
+      "name": "American Odds Input",
+      "description": "Testing American odds parsing",
+      "odds_a": "+150",
+      "odds_b": "+200",
+      "total": 1000,
+      "method": "arbitrage",
+      "currency": "$",
+      "expected": {
+        "guaranteed_profit": true
+      }
+    },
+    {
+      "name": "Large Stake",
+      "description": "Testing with large numbers",
+      "odds_a": "2.56",
+      "odds_b": "3.85",
+      "total": 1000000,
+      "method": "arbitrage",
+      "currency": "₦",
+      "expected": {
+        "guaranteed_profit": true
+      }
+    },
+    {
+      "name": "Small Stake",
+      "description": "Testing with small numbers",
+      "odds_a": "2.0",
+      "odds_b": "3.0",
+      "total": 10,
+      "method": "arbitrage",
+      "currency": "$",
+      "expected": {
+        "guaranteed_profit": true
+      }
+    }
+  ]
+}
