@@ -4,6 +4,8 @@
 
 A professional terminal-based calculator for optimal bet allocation using Kelly Criterion, arbitrage, and proportional strategies. Features a Bloomberg Terminal-inspired design.
 
+<img width="1051" height="816" alt="Screenshot 2026-01-02 at 16 38 38" src="https://github.com/user-attachments/assets/528f0a03-6baf-4f30-bbfc-1f4a3c2363b1" />
+
 ## Features
 
 - **Three calculation methods**: Arbitrage (guaranteed profit), Kelly Criterion (growth optimization), Proportional (inverse odds)
